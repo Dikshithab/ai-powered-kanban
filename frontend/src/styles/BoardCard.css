@@ -1,0 +1,176 @@
+.board-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--ai-accent);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.board-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--ai-accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.board-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.board-card:hover::before {
+  transform: scaleX(1);
+}
+
+.board-main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.board-info-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+
+.board-card .board-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+
+.board-card:hover .board-icon {
+  transform: none;
+}
+
+.board-text h3 {
+  color: var(--text);
+  font-size: 16px;
+  margin: 0 0 4px;
+  font-weight: 650;
+}
+
+.board-text p {
+  color: var(--text-light);
+  font-size: 13px;
+  margin: 0;
+}
+
+.board-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.board-card .delete-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.board-card .delete-btn:hover {
+  background: var(--danger);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.progress-section {
+  width: 100%;
+  margin-top: 2px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--accent), var(--ai-accent));
+  background-size: 200%;
+  animation: none;
+}
+
+.progress-text {
+  margin: 6px 0 0;
+  color: var(--text-light);
+  font-size: 12px;
+}
+
+body.dark .board-card {
+  border-color: var(--border-color);
+}
+
+body.dark .progress-bar {
+  background: #1e293b;
+}
+
+body.dark .board-card .delete-btn {
+  background: var(--danger-soft);
+  color: #f87171;
+}
+
+@media (max-width: 500px) {
+  .board-card {
+    padding: 16px;
+  }
+
+  .board-main-content {
+    align-items: flex-start;
+  }
+
+  .board-card .board-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,247 @@
+/* ====================================
+   MODAL BACKDROP OVERLAY
+==================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* ====================================
+   EDIT TASK MODAL CONTAINER
+==================================== */
+.edit-modal {
+    width: 560px;
+    max-width: 92%;
+    background: var(--card, #ffffff);
+    border-radius: 24px;
+    padding: 35px;
+    position: relative;
+    border: 1px solid rgba(99, 102, 241, 0.08);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    animation: popup 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ====================================
+   TITLE & HEADERS
+==================================== */
+.edit-modal h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 25px 0;
+    color: var(--text, #1f2937);
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.edit-modal h2 svg {
+    color: #6366f1;
+}
+
+/* ====================================
+   CLOSE BUTTON STYLE
+==================================== */
+.close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: var(--background, #f3f4f6);
+    color: var(--text, #4b5563);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, transform 0.2s, color 0.2s;
+}
+
+.close-btn:hover {
+    background: #ef4444;
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* ====================================
+   FORM AND GRID INPUTS
+==================================== */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text, #4b5563);
+}
+
+.input-group label svg {
+    color: #9ca3af;
+}
+
+/* ====================================
+   INPUT CONTROL FIELDS
+==================================== */
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border, #d1d5db);
+    background: var(--background, #ffffff);
+    color: var(--text, #1f2937);
+    font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group textarea {
+    resize: none;
+    min-height: 100px;
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    outline: none;
+}
+
+/* ====================================
+   ACTION CONTROL BUTTONS
+==================================== */
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.cancel-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    background: rgba(156, 163, 175, 0.15);
+    color: var(--text, #374151);
+    transition: background-color 0.2s;
+}
+
+.cancel-btn:hover {
+    background: rgba(156, 163, 175, 0.25);
+}
+
+.save-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    color: white;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    transition: opacity 0.2s, transform 0.1s;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+}
+
+.save-btn:hover {
+    opacity: 0.95;
+}
+
+.save-btn:active, 
+.cancel-btn:active {
+    transform: scale(0.98);
+}
+
+/* ====================================
+   SYSTEM CONTEXT HOOKS (DARK MODE)
+==================================== */
+body.dark .edit-modal {
+    background: var(--card, #1e293b);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+body.dark .cancel-btn {
+    background: #334155;
+    color: #ffffff;
+}
+
+body.dark .cancel-btn:hover {
+    background: #475569;
+}
+
+body.dark .close-btn {
+    background: #334155;
+}
+
+/* ====================================
+   TRANSITION ANIMATIONS
+==================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popup {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ====================================
+   RESPONSIVE LAYOUT MEDIA ADAPTATIONS
+==================================== */
+@media (max-width: 600px) {
+    .edit-modal {
+        padding: 24px;
+    }
+    .edit-modal h2 {
+        font-size: 22px;
+    }
+    .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .modal-buttons {
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+    .cancel-btn,
+    .save-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

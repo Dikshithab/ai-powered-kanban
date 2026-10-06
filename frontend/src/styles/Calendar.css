@@ -1,0 +1,159 @@
+/* ====================================
+   Calendar Page Container
+==================================== */
+.calendar-page {
+  margin-left: 260px;
+  padding: 35px;
+  background: var(--background);
+  min-height: 100vh;
+  transition: background 0.3s ease;
+}
+
+.calendar-page h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+.calendar-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ====================================
+   Calendar Widget
+==================================== */
+.calendar-left {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.react-calendar {
+  border: none !important;
+  font-family: inherit;
+  width: 350px;
+  background: transparent !important;
+  color: var(--text);
+}
+
+.react-calendar__tile {
+  padding: 15px 5px !important;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.react-calendar__tile:hover {
+  background: rgba(99, 102, 241, 0.1) !important;
+}
+
+.react-calendar__tile--active {
+  background: #6366f1 !important;
+  color: white !important;
+  border-radius: 10px;
+}
+
+.react-calendar__navigation button {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text);
+}
+
+/* ====================================
+   Right Side Panel
+==================================== */
+.calendar-right {
+  flex: 1;
+}
+
+.task-count-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 20px;
+  background: var(--card);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.task-count-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.task-count-header span {
+  background: #6366f1;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ====================================
+   Legend & Status
+==================================== */
+.calendar-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 15px;
+  background: var(--card);
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.calendar-legend div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+/* ====================================
+   Empty State
+==================================== */
+.calendar-empty {
+  background: var(--card);
+  padding: 40px;
+  text-align: center;
+  border-radius: 15px;
+  border: 1px dashed var(--border, #cbd5e1);
+}
+
+.empty-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* ====================================
+   Dot Markers
+==================================== */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 4px auto 0;
+}
+
+.dot.red { background: #ef4444; }
+.dot.yellow { background: #f59e0b; }
+.dot.green { background: #22c55e; }
+
+/* ====================================
+   Dark Mode & Responsive
+==================================== */
+@media (max-width: 900px) {
+  .calendar-page { margin-left: 0; padding: 20px; }
+  .calendar-container { flex-direction: column; }
+  .react-calendar { width: 100%; }
+}
+
+body.dark .react-calendar__tile { color: var(--text); }
+body.dark .react-calendar__navigation button:disabled { background-color: #1e293b; }

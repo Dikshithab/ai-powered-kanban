@@ -1,0 +1,463 @@
+/* =========================================================
+   KANBANX - AI TASK BREAKDOWN
+   ========================================================= */
+
+.ai-task-breakdown {
+  margin: 24px 0;
+  padding: 26px;
+  border-radius: 20px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e5e7eb);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.ai-task-header {
+  margin-bottom: 20px;
+}
+
+.ai-task-header h2 {
+  margin: 0 0 7px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-color, #111827);
+}
+
+.ai-task-header p {
+  margin: 0;
+  color: var(--text-secondary, #6b7280);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================
+   PROJECT DESCRIPTION
+   ========================= */
+
+.ai-task-breakdown > textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 120px;
+  padding: 15px 16px;
+
+  resize: vertical;
+
+  border: 1px solid var(--border-color, #d1d5db);
+  border-radius: 13px;
+
+  background: var(--input-bg, #ffffff);
+  color: var(--text-color, #111827);
+
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ai-task-breakdown > textarea::placeholder {
+  color: #9ca3af;
+}
+
+.ai-task-breakdown > textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* =========================
+   GENERATE BUTTON
+   ========================= */
+
+.ai-task-breakdown > button {
+  margin-top: 13px;
+
+  padding: 11px 20px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #6366f1;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.ai-task-breakdown > button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(99, 102, 241, 0.25);
+}
+
+.ai-task-breakdown > button:active {
+  transform: translateY(0);
+}
+
+.ai-task-breakdown button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   ERROR
+   ========================= */
+
+.ai-error {
+  margin: 13px 0 0;
+  padding: 10px 13px;
+
+  border-radius: 9px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  font-size: 13px;
+}
+
+/* =========================
+   GENERATED TASK SECTION
+   ========================= */
+
+.ai-generated-tasks {
+  margin-top: 25px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+/* =========================
+   RESULTS HEADER
+   ========================= */
+
+.ai-results-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.ai-results-header h3 {
+  margin: 0 0 4px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: var(--text-color, #111827);
+}
+
+.ai-results-header span {
+  color: var(--text-secondary, #6b7280);
+  font-size: 12px;
+}
+
+/* Selected count */
+
+.ai-results-header > span {
+  flex-shrink: 0;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+
+  font-weight: 600;
+}
+
+/* =========================
+   AI TASK ITEM
+   ========================= */
+
+.ai-task-item {
+  margin-bottom: 12px;
+
+  padding: 16px;
+
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 14px;
+
+  background: var(--card-bg, #ffffff);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ai-task-item:hover {
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+}
+
+.ai-task-item.selected {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.08);
+}
+
+/* =========================
+   TASK TOP
+   ========================= */
+
+.ai-task-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.ai-checkbox {
+  padding-top: 7px;
+  cursor: pointer;
+}
+
+.ai-checkbox input {
+  width: 17px;
+  height: 17px;
+
+  accent-color: #6366f1;
+
+  cursor: pointer;
+}
+
+/* =========================
+   TASK FIELDS
+   ========================= */
+
+.ai-task-fields {
+  flex: 1;
+  min-width: 0;
+}
+
+.ai-task-title-input,
+.ai-task-description-input,
+.ai-task-fields select {
+  width: 100%;
+  box-sizing: border-box;
+
+  font-family: inherit;
+
+  outline: none;
+
+  background: var(--input-bg, #ffffff);
+  color: var(--text-color, #111827);
+
+  border: 1px solid var(--border-color, #d1d5db);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Title */
+
+.ai-task-title-input {
+  padding: 10px 12px;
+
+  border-radius: 9px;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Description */
+
+.ai-task-description-input {
+  margin-top: 9px;
+
+  padding: 10px 12px;
+
+  min-height: 72px;
+
+  resize: vertical;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Focus */
+
+.ai-task-title-input:focus,
+.ai-task-description-input:focus,
+.ai-task-fields select:focus {
+  border-color: #6366f1;
+
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* =========================
+   TASK ACTIONS
+   ========================= */
+
+.ai-task-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+.ai-task-fields select {
+  width: auto;
+  min-width: 125px;
+
+  padding: 8px 10px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+/* =========================
+   REMOVE BUTTON
+   ========================= */
+
+.ai-remove-button {
+  padding: 8px 11px;
+
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ai-remove-button:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+}
+
+/* =========================
+   CREATE BUTTON
+   ========================= */
+
+.ai-generated-tasks > button {
+  width: 100%;
+
+  margin-top: 8px;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #6366f1;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.ai-generated-tasks > button:hover {
+  transform: translateY(-1px);
+
+  box-shadow: 0 7px 20px rgba(99, 102, 241, 0.25);
+}
+
+.ai-generated-tasks > button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+.dark .ai-task-breakdown {
+  background: var(--card-bg, #111827);
+  border-color: var(--border-color, #374151);
+}
+
+.dark .ai-task-item {
+  background: #151b2b;
+  border-color: #374151;
+}
+
+.dark .ai-task-title-input,
+.dark .ai-task-description-input,
+.dark .ai-task-fields select,
+.dark .ai-task-breakdown > textarea {
+  background: #0f172a;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.dark .ai-task-title-input::placeholder,
+.dark .ai-task-description-input::placeholder,
+.dark .ai-task-breakdown > textarea::placeholder {
+  color: #6b7280;
+}
+
+.dark .ai-remove-button {
+  background: rgba(220, 38, 38, 0.1);
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+  .ai-task-breakdown {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .ai-results-header {
+    flex-direction: column;
+  }
+
+  .ai-task-top {
+    gap: 9px;
+  }
+
+  .ai-task-actions {
+    flex-wrap: wrap;
+  }
+
+  .ai-task-fields select {
+    width: 100%;
+  }
+
+  .ai-remove-button {
+    width: 100%;
+  }
+}

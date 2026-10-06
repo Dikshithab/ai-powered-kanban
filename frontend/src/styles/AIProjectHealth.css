@@ -1,0 +1,455 @@
+/* =========================================================
+   KANBANX - AI PROJECT HEALTH
+   ========================================================= */
+
+.ai-project-health {
+  margin: 24px 0;
+  padding: 26px;
+
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 20px;
+
+  background: var(--card-bg, #ffffff);
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+
+  color: var(--text-color, #111827);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+.health-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.health-header h2 {
+  margin: 0 0 6px;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.health-header p {
+  margin: 0;
+
+  color: var(--text-secondary, #6b7280);
+  font-size: 14px;
+}
+
+/* =========================
+   ANALYZE BUTTON
+   ========================= */
+
+.analyze-health-btn {
+  flex-shrink: 0;
+
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 11px;
+
+  background: #6366f1;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.analyze-health-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 7px 20px rgba(99, 102, 241, 0.25);
+}
+
+.analyze-health-btn:active {
+  transform: translateY(0);
+}
+
+.analyze-health-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================
+   ERROR
+   ========================= */
+
+.health-error {
+  margin-top: 16px;
+  padding: 11px 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+
+  background: #fef2f2;
+  color: #dc2626;
+
+  font-size: 13px;
+}
+
+/* =========================
+   RESULTS
+   ========================= */
+
+.health-results {
+  display: grid;
+
+  grid-template-columns: 190px 1fr;
+
+  gap: 15px;
+
+  margin-top: 24px;
+}
+
+/* =========================
+   HEALTH SCORE
+   ========================= */
+
+.health-score-card {
+  grid-row: span 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 180px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: 16px;
+
+  background: rgba(99, 102, 241, 0.07);
+}
+
+.health-score {
+  font-size: 46px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  color: #6366f1;
+}
+
+.health-score span {
+  margin-left: 2px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.health-score-card p {
+  margin: 9px 0 0;
+
+  color: var(--text-secondary, #6b7280);
+
+  font-size: 12px;
+}
+
+/* =========================
+   HEALTH STATUS
+   ========================= */
+
+.health-status {
+  margin-top: 12px;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.health-status.healthy {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.health-status.warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.health-status.critical {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* =========================
+   SUMMARY
+   ========================= */
+
+.health-summary {
+  padding: 18px;
+
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 14px;
+
+  background: var(--card-bg, #ffffff);
+}
+
+.health-summary h3 {
+  margin: 0 0 8px;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.health-summary p {
+  margin: 0;
+
+  color: var(--text-secondary, #6b7280);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================
+   GENERAL SECTIONS
+   ========================= */
+
+.health-section {
+  grid-column: 1 / -1;
+
+  padding: 18px;
+
+  border: 1px solid var(--border-color, #e5e7eb);
+  border-radius: 14px;
+
+  background: var(--card-bg, #ffffff);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+}
+
+.section-title h3 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.section-title span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  height: 24px;
+
+  padding: 0 7px;
+
+  border-radius: 20px;
+
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================
+   RISKS
+   ========================= */
+
+.risk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.risk-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 13px;
+
+  border-radius: 11px;
+
+  background: rgba(239, 68, 68, 0.04);
+
+  border: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.risk-content {
+  min-width: 0;
+}
+
+.risk-content strong {
+  display: block;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.risk-content p {
+  margin: 5px 0 0;
+
+  color: var(--text-secondary, #6b7280);
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.risk-severity {
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.risk-severity.high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.risk-severity.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.risk-severity.low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* =========================
+   RECOMMENDATIONS
+   ========================= */
+
+.recommendation-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.recommendation-list li {
+  position: relative;
+
+  padding: 11px 13px 11px 35px;
+
+  border-radius: 10px;
+
+  background: rgba(99, 102, 241, 0.05);
+
+  color: var(--text-secondary, #6b7280);
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.recommendation-list li::before {
+  content: "💡";
+
+  position: absolute;
+  left: 12px;
+  top: 10px;
+}
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty-health {
+  margin: 0;
+
+  color: var(--text-secondary, #6b7280);
+
+  font-size: 13px;
+}
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+.dark .ai-project-health {
+  background: var(--card-bg, #111827);
+  border-color: var(--border-color, #374151);
+}
+
+.dark .health-summary,
+.dark .health-section {
+  background: var(--card-bg, #111827);
+  border-color: #374151;
+}
+
+.dark .health-score-card {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(129, 140, 248, 0.2);
+}
+
+.dark .risk-item {
+  background: rgba(239, 68, 68, 0.06);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 700px) {
+  .ai-project-health {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .health-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .analyze-health-btn {
+    width: 100%;
+  }
+
+  .health-results {
+    grid-template-columns: 1fr;
+  }
+
+  .health-score-card {
+    grid-row: auto;
+    min-height: 150px;
+  }
+
+  .risk-item {
+    flex-direction: column;
+  }
+
+  .risk-severity {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,238 @@
+.task-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: grab;
+}
+
+.task-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--ai-accent));
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.task-card h3 {
+  font-size: 14px;
+  font-weight: 650;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.task-card p,
+.task-card .description {
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.task-card:active {
+  cursor: grabbing;
+  transform: scale(1.01);
+}
+
+.priority-dot {
+  font-size: 11px;
+}
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+  box-shadow: none;
+}
+
+.priority.high {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.priority.medium {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.priority.low {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.task-card .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 0;
+  letter-spacing: 0.03em;
+  box-shadow: none;
+  color: var(--info);
+  background: var(--info-soft);
+}
+
+.task-card .badge.todo {
+  background: var(--info-soft);
+  color: var(--info);
+}
+
+.task-card .badge.progress {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.task-card .badge.done {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.due-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 5px 9px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+body.dark .due-date {
+  background: var(--accent-soft);
+  color: #c7d2fe;
+}
+
+.task-card select,
+.status-select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.task-card select:focus,
+.status-select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.task-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.task-buttons button {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  padding: 7px 10px;
+  font-weight: 600;
+  font-size: 12px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.task-buttons button:hover {
+  transform: translateY(-1px);
+}
+
+.save-btn {
+  background: var(--accent);
+}
+
+.save-btn:hover {
+  background: var(--accent-hover);
+}
+
+.edit-btn {
+  background: var(--warning);
+}
+
+.edit-btn:hover {
+  filter: brightness(0.95);
+}
+
+.delete-btn {
+  background: var(--danger);
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+body.dark .task-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+}
+
+body.dark .task-card select {
+  background: var(--input-bg);
+}
+
+@media (max-width: 768px) {
+  .task-card {
+    padding: 12px;
+  }
+
+  .task-card h3 {
+    font-size: 14px;
+  }
+
+  .task-buttons {
+    justify-content: space-between;
+  }
+
+  .task-buttons button {
+    flex: 1;
+  }
+}

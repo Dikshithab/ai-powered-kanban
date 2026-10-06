@@ -1,0 +1,231 @@
+/* ==========================================================================
+   Create Task Button Trigger
+   ========================================================================== */
+.create-task-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.create-task-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(79, 70, 229, 0.45);
+}
+
+/* ==========================================================================
+   Modal Layout Framework
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(6px);
+  z-index: 9999;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.modal {
+  position: relative;
+  width: 550px;
+  max-width: 95%;
+  background: var(--card, #ffffff);
+  border-radius: 24px;
+  padding: 40px 35px 35px;
+  border: 1px solid rgba(99, 102, 241, 0.08);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: popup 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal h2 {
+  text-align: center;
+  color: var(--text, #1f2937);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  color: var(--text, #9ca3af);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ef4444;
+}
+
+/* ==========================================================================
+   Form Fields & Component Architecture
+   ========================================================================== */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text, #4b5563);
+}
+
+.input-group label svg {
+  color: #6366f1;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(156, 163, 175, 0.25);
+  background: var(--background, transparent);
+  color: var(--text, #1f2937);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.modal textarea {
+  resize: none;
+  min-height: 110px;
+}
+
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* ==========================================================================
+   Action Controls
+   ========================================================================== */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.cancel-btn, .create-btn {
+  padding: 13px 24px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.cancel-btn {
+  background: rgba(156, 163, 175, 0.15);
+  color: var(--text, #374151);
+}
+
+.cancel-btn:hover {
+  background: rgba(156, 163, 175, 0.25);
+}
+
+.create-btn {
+  color: #ffffff;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+.create-btn:hover {
+  opacity: 0.96;
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.35);
+}
+
+.cancel-btn:active, .create-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Context Adaptations (Dark Mode & Responsive)
+   ========================================================================== */
+body.dark .modal {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark .cancel-btn {
+  background: #334155;
+  color: #ffffff;
+}
+
+body.dark .cancel-btn:hover {
+  background: #475569;
+}
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .modal {
+    padding: 30px 20px 20px;
+  }
+  .modal h2 {
+    font-size: 22px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .modal-buttons {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  .cancel-btn, .create-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
