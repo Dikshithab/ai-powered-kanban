@@ -1,18 +1,21 @@
 # 🤖 AI-Powered Kanban
 
-> **An AI-powered predictive project management platform that helps teams manage tasks, identify project risks, monitor project health, and receive intelligent recommendations before problems become blockers.**
+> **An AI-powered predictive project management platform that helps users manage tasks, identify project risks, monitor project health, and receive intelligent recommendations before problems become blockers.**
 
-Built with **React + Django REST Framework + Groq AI**.
+**React + Django REST Framework + PostgreSQL + Groq AI**
+
+🔗 **Live Demo:** https://ai-powered-kanban-frontend-5zgq3th1j.vercel.app/
+🔗 **GitHub:** https://github.com/Dikshithab/ai-powered-kanban
 
 ---
 
 ## 🚀 Overview
 
-Traditional Kanban applications help users track tasks, but they usually depend on users noticing problems themselves.
+Traditional Kanban applications help users organize and track tasks, but they generally depend on users manually identifying project problems.
 
-This project goes one step further.
+**AI-Powered Kanban** goes one step further by combining Kanban project management with predictive project analysis.
 
-**AI-Powered Kanban** combines traditional Kanban project management with AI-driven project analysis to help identify:
+The platform analyzes project activity to identify:
 
 * Overdue tasks
 * High-priority risks
@@ -22,30 +25,42 @@ This project goes one step further.
 * Overall project health
 * Recommended actions for risky tasks
 
-The goal is to move from **reactive task management** to **predictive project management**.
+The goal is to move project management from:
+
+**Reactive Task Management → Predictive Project Management**
 
 ---
 
 ## 🎯 Problem Statement
 
-In normal project management systems, users often discover project problems only after they become serious.
+In traditional project management systems, users may discover problems only after they have already affected the project.
 
 For example:
 
-* A high-priority task may be close to its deadline.
-* A task may be blocked by another unfinished task.
-* Several tasks may remain incomplete.
+* A high-priority task may be approaching its deadline.
+* A task may be blocked by an unfinished dependency.
+* Several important tasks may remain incomplete.
 * A project may appear active while actually being at risk.
 
-Manually monitoring all these factors becomes difficult as projects grow.
+Manually monitoring all these conditions becomes increasingly difficult as projects grow.
 
 ### 💡 Solution
 
-This platform continuously analyzes project task information and provides:
+The platform analyzes task and project information and provides:
 
-**Task Management → Risk Detection → Project Health Analysis → AI Recommendations**
+```text
+Task Management
+       ↓
+Risk Detection
+       ↓
+Project Health Analysis
+       ↓
+AI Recommendations
+       ↓
+Actionable Project Insights
+```
 
-This allows users to identify potential problems earlier and take corrective action.
+This helps users identify potential problems earlier and decide what action to take.
 
 ---
 
@@ -54,14 +69,15 @@ This allows users to identify potential problems earlier and take corrective act
 ## 📋 Kanban Project Management
 
 * Create and manage project boards
-* Create, edit and delete tasks
+* Create, edit, and delete tasks
 * Organize tasks using Kanban workflow
 * Task status management
 * Priority management
 * Due dates
 * Task descriptions
+* User-specific project data
 
-### Task Status
+### Task Workflow
 
 ```text
 TODO
@@ -81,7 +97,7 @@ The system validates dependencies to prevent:
 
 * Self-dependencies
 * Cross-board dependencies
-* Circular dependencies
+* Circular dependency relationships
 
 Example:
 
@@ -95,7 +111,7 @@ Frontend Integration
 Testing
 ```
 
-If an earlier task is incomplete, dependent tasks can be identified as blocked.
+If an earlier task remains incomplete, dependent tasks can be identified as blocked.
 
 ---
 
@@ -107,13 +123,13 @@ Users can provide a project description and the AI generates realistic developme
 
 ### Example
 
-Input:
+**Input:**
 
 ```text
 Build an online food delivery application.
 ```
 
-The AI can generate tasks such as:
+**Generated tasks may include:**
 
 ```text
 1. Design database schema
@@ -125,15 +141,15 @@ The AI can generate tasks such as:
 7. Perform testing
 ```
 
-This reduces the time required to manually plan a project.
+This reduces the manual effort required during initial project planning.
 
 ---
 
 # ❤️ 2. AI Project Health
 
-The platform analyzes the current state of a project and generates a health assessment.
+The platform analyzes the current state of a project and generates a project health assessment.
 
-The analysis considers factors such as:
+The analysis considers:
 
 * Total tasks
 * Completed tasks
@@ -160,15 +176,15 @@ The result includes:
 🔴 CRITICAL
 ```
 
-The backend calculates reliable project metrics and the AI provides higher-level interpretation and recommendations.
+The backend first calculates reliable project metrics. AI is then used to interpret the project state and provide higher-level insights and recommendations.
 
 ---
 
-# ⚠️ 3. AI Early Warning System
+# ⚠️ 3. Predictive Early Warning System
 
-One of the main features of this project is the **Early Warning System**.
+The **Early Warning System** is one of the core features of the platform.
 
-Instead of waiting until a project fails, the system identifies tasks that may become risky.
+Instead of waiting until a project problem becomes a blocker, the system identifies tasks that may become risky.
 
 The risk engine considers:
 
@@ -178,7 +194,7 @@ The risk engine considers:
 * Current task status
 * Unfinished dependencies
 
-Each risky task receives a risk score.
+A risk score is calculated for each potentially problematic task.
 
 ### Example
 
@@ -195,15 +211,21 @@ Risk Factors:
 - Blocked by Database Setup
 ```
 
-This allows users to focus on the most important problems first.
+This allows users to prioritize the tasks that require immediate attention.
+
+### Important Design Choice
+
+The risk score is calculated using **deterministic backend logic**, providing predictable and explainable results.
+
+AI is used separately for generating contextual recommendations.
 
 ---
 
 # 💡 4. AI Recommendations
 
-After identifying risky tasks, the platform uses AI to generate actionable recommendations.
+After risky tasks are detected, the platform uses Groq-powered AI to generate actionable recommendations.
 
-Example:
+### Example
 
 ```text
 Risk:
@@ -213,10 +235,16 @@ AI Recommendation:
 Complete the database setup before continuing the Payment API implementation.
 
 Reason:
-The Payment API depends on database availability and may cause additional delays if development continues without resolving the dependency.
+The Payment API depends on database availability and may experience additional delays if development continues before the dependency is resolved.
 ```
 
-This transforms the system from simply **detecting risks** into **helping users decide what to do next**.
+This transforms the platform from simply:
+
+**Detecting Problems**
+
+into:
+
+**Detecting → Explaining → Recommending Actions**
 
 ---
 
@@ -230,9 +258,9 @@ The platform includes:
 * Profile management
 * Profile photo upload
 * Password change
-* User-specific boards
+* User-specific boards and tasks
 
-Users can only access their own project data.
+Users can only access their authorized project data.
 
 ---
 
@@ -252,54 +280,73 @@ It includes:
 * Project statistics
 * AI Project Health
 * AI Early Warnings
+* AI Recommendations
 
 ---
 
 # 📄 PDF Export
 
-Tasks can be exported as a PDF for sharing or documentation.
+Tasks can be exported as a PDF for project documentation or sharing.
 
-This provides a convenient way to create an offline project summary.
+This provides an offline representation of project task information.
 
 ---
 
-# 🏗️ Architecture
+# 🏗️ System Architecture
 
 ```text
-                    ┌───────────────────────┐
-                    │      React Frontend   │
-                    │                       │
-                    │  Dashboard            │
-                    │  Kanban Board         │
-                    │  Profile              │
-                    │  AI Features          │
-                    └───────────┬───────────┘
-                                │
-                           REST API
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │ Django REST Framework │
-                    │                       │
-                    │ Authentication        │
-                    │ Board APIs            │
-                    │ Task APIs             │
-                    │ Dependency Validation │
-                    │ AI APIs               │
-                    └───────────┬───────────┘
-                                │
-                    ┌───────────┴───────────┐
-                    │                       │
-                    ▼                       ▼
-             ┌─────────────┐        ┌──────────────┐
-             │  Database   │        │   Groq AI    │
-             │             │        │              │
-             │ Users       │        │ Task         │
-             │ Boards      │        │ Generation   │
-             │ Tasks       │        │ Health       │
-             │ Dependencies│        │ Analysis     │
-             └─────────────┘        │ Recommendations│
-                                    └──────────────┘
+                         ┌───────────────────────┐
+                         │    React + Vite       │
+                         │       Frontend        │
+                         │                       │
+                         │ Dashboard             │
+                         │ Kanban Board          │
+                         │ Profile               │
+                         │ AI Features           │
+                         └───────────┬───────────┘
+                                     │
+                                  HTTPS
+                                     │
+                                     ▼
+                         ┌───────────────────────┐
+                         │   Django REST API     │
+                         │                       │
+                         │ Authentication        │
+                         │ Board APIs            │
+                         │ Task APIs             │
+                         │ Dependency Validation │
+                         │ AI APIs               │
+                         └───────┬────────┬──────┘
+                                 │        │
+                    ┌────────────┘        └─────────────┐
+                    ▼                                    ▼
+          ┌─────────────────┐                  ┌─────────────────┐
+          │   PostgreSQL    │                  │    Groq AI      │
+          │                 │                  │                 │
+          │ Users           │                  │ Task Generation │
+          │ Boards          │                  │ Health Analysis │
+          │ Tasks           │                  │ Recommendations │
+          │ Dependencies    │                  └─────────────────┘
+          └─────────────────┘
+```
+
+### Production Deployment
+
+```text
+React Frontend
+      │
+      ▼
+   Vercel
+      │
+      │ HTTPS REST API
+      ▼
+Django REST API
+      │
+      ├──────────────► Render
+      │
+      ├──────────────► Supabase PostgreSQL
+      │
+      └──────────────► Groq API
 ```
 
 ---
@@ -315,9 +362,9 @@ This provides a convenient way to create an offline project summary.
 * CSS
 * React Icons
 * React Toastify
+* React Circular Progressbar
 * jsPDF
 * jspdf-autotable
-* React Circular Progressbar
 
 ## Backend
 
@@ -326,24 +373,34 @@ This provides a convenient way to create an offline project summary.
 * Django REST Framework
 * Simple JWT
 * Django CORS Headers
+* WhiteNoise
+* Gunicorn
 
 ## AI
 
 * Groq API
 * LLM-based task generation
-* LLM-based project health analysis
-* LLM-based risk recommendations
+* LLM-assisted project health analysis
+* LLM-generated risk recommendations
 
 ## Database
 
+* PostgreSQL
 * Django ORM
-* Relational database support
+* Supabase
+
+## Deployment
+
+* Vercel — Frontend
+* Render — Backend
+* Supabase — PostgreSQL
 
 ## Development Tools
 
 * Git
 * GitHub
 * VS Code
+* PowerShell
 
 ---
 
@@ -357,13 +414,13 @@ Authentication flow:
 User
  │
  ▼
-Login
+Login / Register
  │
  ▼
 Django Authentication
  │
  ▼
-JWT Access Token
+JWT Access + Refresh Tokens
  │
  ▼
 React Frontend
@@ -372,43 +429,54 @@ React Frontend
 Authenticated API Requests
 ```
 
-Protected APIs require authentication.
+Axios interceptors automatically attach the access token to authenticated API requests and handle access-token refresh when required.
 
 ---
 
-# 🧠 AI Risk Detection Workflow
+# 🧠 AI & Risk Detection Workflow
 
-The early warning system follows this workflow:
+The early warning workflow is:
 
 ```text
-Project Tasks
-     │
-     ▼
-Analyze Task Data
-     │
-     ├── Due Date
-     ├── Priority
-     ├── Status
-     └── Dependencies
-     │
-     ▼
-Calculate Risk Score
-     │
-     ▼
-Identify Risk Level
-     │
-     ├── LOW
-     ├── MEDIUM
-     └── HIGH
-     │
-     ▼
-AI Recommendation
-     │
-     ▼
-Actionable Project Insight
+                    Project Tasks
+                         │
+                         ▼
+                  Analyze Task Data
+                         │
+              ┌──────────┼──────────┐
+              │          │          │
+          Due Date    Priority    Status
+              │          │          │
+              └──────────┼──────────┘
+                         │
+                    Dependencies
+                         │
+                         ▼
+                 Calculate Risk Score
+                         │
+                         ▼
+                  Identify Risk Level
+                         │
+              ┌──────────┼──────────┐
+              │          │          │
+             LOW       MEDIUM      HIGH
+                         │
+                         ▼
+                Generate AI Insight
+                         │
+                         ▼
+              Actionable Recommendation
 ```
 
-The deterministic risk calculation provides consistent risk scoring, while AI is used to generate contextual recommendations.
+The architecture deliberately separates:
+
+**Deterministic Risk Detection**
+
+from
+
+**AI-powered Interpretation and Recommendations**
+
+This makes the risk detection more predictable while still benefiting from generative AI.
 
 ---
 
@@ -438,7 +506,7 @@ ai-powered-kanban/
 
 # ⚙️ Local Setup
 
-## 1. Clone the repository
+## 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Dikshithab/ai-powered-kanban.git
@@ -473,6 +541,8 @@ pip install -r requirements.txt
 Create a `.env` file inside `backend/`:
 
 ```env
+SECRET_KEY=your_secret_key
+DEBUG=True
 GROQ_API_KEY=your_groq_api_key
 ```
 
@@ -488,7 +558,7 @@ Start Django:
 python manage.py runserver
 ```
 
-Backend will run locally at:
+Backend:
 
 ```text
 http://127.0.0.1:8000/
@@ -502,67 +572,77 @@ Open another terminal.
 
 Navigate to:
 
-```bash
+```powershell
 cd frontend
 ```
 
 Install dependencies:
 
-```bash
+```powershell
 npm install
+```
+
+Create a `.env` file:
+
+```env
+VITE_API_URL=http://127.0.0.1:8000/api/
 ```
 
 Start the development server:
 
-```bash
+```powershell
 npm run dev
 ```
 
-Open the URL displayed by Vite in your browser.
+Open the URL displayed by Vite.
 
 ---
 
 # 🔑 Environment Variables
 
-Never commit real API keys.
+Never commit real API keys or production credentials.
 
-Create:
-
-```text
-backend/.env
-```
-
-with:
+### Backend
 
 ```env
+SECRET_KEY=your_secret_key
+DEBUG=True
 GROQ_API_KEY=your_groq_api_key
 ```
 
-The `.env` file is excluded from Git using `.gitignore`.
+### Frontend
 
-For deployment, configure the environment variable through the hosting platform.
+```env
+VITE_API_URL=http://127.0.0.1:8000/api/
+```
+
+For production deployment, configure environment variables through the hosting platform.
+
+The `.env` files are excluded from Git using `.gitignore`.
 
 ---
 
 # 🔒 Security Considerations
 
-The project follows several basic security practices:
+The project implements several security practices:
 
 * JWT authentication
 * Protected API endpoints
-* User-specific board access
-* Environment variables for API keys
-* GitHub secret protection
-* Dependency validation
+* User-specific project access
+* Environment variables for secrets
+* Production CORS restrictions
 * Server-side validation
+* Dependency validation
+* GitHub secret protection
+* Sensitive database files excluded from Git
 
-Sensitive credentials and local database dumps are intentionally excluded from the repository.
+Production credentials and local database dumps are intentionally excluded from the repository.
 
 ---
 
-# 🧪 Testing Checklist
+# 🧪 Production Testing Checklist
 
-Before deployment, test:
+The deployed application has been tested for:
 
 * [x] User registration
 * [x] User login
@@ -581,7 +661,7 @@ Before deployment, test:
 * [x] AI Recommendations
 * [x] PDF export
 * [x] Dark/Light mode
-* [x] Responsive UI
+* [x] Production deployment
 
 ---
 
@@ -591,7 +671,7 @@ A traditional Kanban application mainly answers:
 
 > **"What tasks do I have?"**
 
-This project attempts to answer additional questions:
+AI-Powered Kanban attempts to answer additional questions:
 
 > **"Is my project healthy?"**
 
@@ -601,24 +681,26 @@ This project attempts to answer additional questions:
 
 > **"What should I do next?"**
 
-That predictive layer is the main purpose of integrating AI into the project-management workflow.
+The predictive layer is the primary purpose of integrating AI into the project-management workflow.
 
 ---
 
 # 🚀 Future Improvements
 
-Potential future improvements include:
+Potential improvements include:
 
 * Automatic background risk monitoring
 * Historical project health tracking
-* Risk trends and analytics
+* Risk trend analytics
 * Team collaboration
 * Role-based project permissions
 * Real-time notifications
-* Production database deployment
+* Email or in-app risk alerts
 * Automated testing
 * CI/CD pipeline
 * Advanced project analytics
+* AI-powered project planning
+* Team productivity insights
 
 ---
 
@@ -626,20 +708,22 @@ Potential future improvements include:
 
 ```text
 React + Django Full Stack
-        +
+          +
 JWT Authentication
-        +
+          +
 Kanban Project Management
-        +
+          +
 Task Dependencies
-        +
+          +
 AI Task Generation
-        +
+          +
 AI Project Health
-        +
+          +
 Predictive Risk Detection
-        +
+          +
 AI Recommendations
+          +
+Cloud Deployment
 ```
 
 ---
@@ -650,7 +734,7 @@ AI Recommendations
 
 B.Tech Computer Science Engineering — Cyber Security
 
-Interested in:
+### Interests
 
 * Python Full Stack Development
 * Artificial Intelligence
