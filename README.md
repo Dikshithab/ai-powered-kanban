@@ -14,7 +14,7 @@ Built using **React, Django REST Framework, Python, and Groq AI**.
 
 ## 🌐 Live Demo
 
-* **Live Application:** [Add your deployed frontend URL]
+* **Live Application:** [ai-powered-kanban-frontend.vercel.app]
 * **GitHub Repository:** [AI-Powered Kanban](https://github.com/Dikshithab/ai-powered-kanban)
 
 > The application is deployed, and the live demo link can be added here.
