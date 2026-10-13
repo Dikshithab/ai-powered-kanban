@@ -14,10 +14,20 @@ Built using **React, Django REST Framework, Python, and Groq AI**.
 
 ## 🌐 Live Demo
 
-* **Live Application:** [ai-powered-kanban-frontend.vercel.app]
-* **GitHub Repository:** [AI-Powered Kanban](https://github.com/Dikshithab/ai-powered-kanban)
+🚀 **Live Application:** [AI-Powered Kanban](https://ai-powered-kanban-frontend.vercel.app)
 
-> The application is deployed, and the live demo link can be added here.
+💻 **GitHub Repository:** [View Source Code](https://github.com/Dikshithab/ai-powered-kanban)
+
+### Deployment Status
+
+* **Frontend:** Deployed on Vercel
+* **Status:** Ready
+* **Framework:** React + Vite
+* **Backend:** Django REST Framework
+* **AI Integration:** Groq API
+
+> Open the live application to explore the interface. AI features and other backend-dependent functionality require the backend service to be available and correctly configured.
+
 
 ---
 
